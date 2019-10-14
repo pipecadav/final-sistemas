@@ -5,6 +5,10 @@ module.exports = {
   //   sourceMap: true,
   // },
   publicPath: '/',
+
+  devServer: {
+    disableHostCheck: true
+  }
   // chainWebpack: (config) => {
   //   config.optimization.splitChunks(false)
 

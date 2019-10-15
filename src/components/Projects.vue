@@ -19,8 +19,8 @@
           class="project"
           flat
         >
-          <v-container>
-            <v-row>
+          <v-container class="project-container">
+            <v-row no-gutters>
               <v-col class="image-container" cols="auto">
                 <v-img
                   :src="`/cfimages/${project.image}`"
@@ -32,33 +32,25 @@
               <v-col
               >
                 <v-row
-                  class="flex-column fill-height"
+                  class="flex-column ma-0 fill-height"
                 >
-                  <v-col>
+                  <v-col >
                     {{ project.name }}
                   </v-col>
       
                   <v-col>
-                    <v-btn icon>
-                      <v-icon color="blue darken-2">money</v-icon>
-                      {{ project.budget }}
-                    </v-btn>
+                    <v-icon color="blue darken-2">money</v-icon>
+                    {{ project.budget }}
                   </v-col>
       
                   <v-col>
-                    <v-btn icon>
-                      <v-icon color="blue darken-2">flag</v-icon>
-                      {{ project.completed }}
-                    </v-btn>
+                    <v-icon color="blue darken-2">flag</v-icon>
+                    {{ project.completed }}
                   </v-col>
                 </v-row>
               </v-col>
             </v-row>
           </v-container>
-          <!-- <div class="card-content">
-            <h3> {{ integration.name }} </h3>
-            <p> {{ integration.description }}</p>
-          </div> -->
         </v-card>
       </v-hover>
     </div>
@@ -107,6 +99,12 @@ export default {
     border: 1px solid #e3e9f2;
     border-radius: 4px;
     cursor: pointer;
+  }
+
+  .project-container {
+    padding-top: 0%;
+    padding-bottom: 0%;
+    padding-left: 0%;
   }
 
 </style>

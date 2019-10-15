@@ -1,30 +1,23 @@
 <template>
   <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>UNIVERSIDAD DE ANTIOQUIA</span>
-        <span class="font-weight-light">SISGPRO</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/pipecadav/final-sistemas"
-        target="_blank"
-      >
-        <span class="mr-2">Repositorio</span>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
+    <Toolbar />
+    <TransitionComponent>
       <router-view />
-    </v-content>
+    </TransitionComponent>
   </v-app>
 </template>
 
 <script>
+import Toolbar from './components/Toolbar'
+import TransitionComponent from './components/transitions/TransitionComponent'
+
 
 export default {
   name: 'App',
+  components: {
+    Toolbar,
+    TransitionComponent,
+  },
   data: () => ({
     //
   }),
@@ -34,6 +27,7 @@ export default {
 <style lang="scss">
 .v-app {
   background-color: #f5f9ff !important;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .home {

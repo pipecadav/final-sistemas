@@ -3,9 +3,9 @@
     :style="style"
     dark
     max-height="70px"
-    :clipped-left="$vuetify.breakpoint.mdAndUp"
+    flat
   >
-    <img src="/cfimages/Logo_Udea.png" alt="avatar" width="auto" height="60px" class="club-logo" @click="navigateToHome">
+    <img src="/cfimages/Logo_Udea.png" alt="avatar" width="auto" height="50px" class="club-logo" @click="navigateToHome">
     <v-spacer />
     <div>
 
@@ -106,9 +106,7 @@ export default {
 }
 </script>
 <style lang="scss">
-.v-toolbar {
-  font-family: 'Montserrat', sans-serif;
-}
+
 
 .back-button-wrapper {
   width: 45px;
@@ -273,7 +271,6 @@ export default {
         }
         .menu-label {
           color: #656565;
-          font-family: Montserrat,sans-serif;
           font-size: 14px;
           font-weight: 300;
           letter-spacing: 0.05px;

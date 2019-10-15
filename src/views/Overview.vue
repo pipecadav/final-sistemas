@@ -1,5 +1,15 @@
 <template>
-  <div class="about">
-    <h1>This is the Overview page</h1>
+  <div class="overview">
+    <Projects />
   </div>
 </template>
+<script>
+
+import Projects from '../components/Projects';
+
+export default {
+  components: {
+    Projects,
+  }
+}
+</script>

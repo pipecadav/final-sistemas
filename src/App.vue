@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <Toolbar />
-    <v-toolbar height="50px" flat>
+    <v-toolbar max-height="70px" flat>
         <v-toolbar-items>
-          <v-btn text>Proyectos</v-btn>
-          <v-btn text>Dashboard</v-btn>
+          <v-btn text :to="{ name:'overview' }" >Proyectos</v-btn>
+          <v-btn text :to="{ name:'dashboard' }" >Dashboard</v-btn>
           <v-btn text>Administración</v-btn>
         </v-toolbar-items>
     </v-toolbar>
@@ -39,9 +39,8 @@ export default {
 .overview {
   max-width: 960px;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 30px;
   margin: 0 auto;
-  text-align: center;
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 7rem;
@@ -50,7 +49,7 @@ export default {
 .details {
   max-width: 960px;
   width: 100%;
-  padding-top: 70px;
+  padding-top: 30px;
   margin: 0 auto;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -62,8 +61,8 @@ export default {
   text-decoration: none;
 }
 
-h2 {
-  margin-top: 25px;
+h3 {
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
@@ -72,22 +71,11 @@ p {
   text-overflow: ellipsis;
 }
 
-ul {
-  padding-top: 5px;
-  padding-bottom: 16px;
-}
-
-.v-chip {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-  margin-left: 0px;
-}
-
 .v-btn {
     text-transform: none !important;
     .v-btn__content {
         padding: 0;
     }
 }
+
 </style>

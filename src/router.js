@@ -14,7 +14,8 @@ export default new Router({
       component: Home
     },
     {
-      path: '/details',
+      path: '/details/:id',
+      props: true,
       name: 'details',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -28,6 +29,14 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "overview" */ './views/Overview.vue')
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      // route level code-splitting
+      // this generates a separate chunk (about.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "overview" */ './views/Dashboard.vue')
     }
   ]
 })

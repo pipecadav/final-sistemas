@@ -8,9 +8,9 @@
       width="3"
       indeterminate
     />
-    <div v-if="!loading" class="projects">
+    <div v-if="!loading">
       <v-hover
-        v-for="project in allProjects"
+        v-for="(project, index) in allProjects"
         :key="project.id"
       >
         <v-card
@@ -18,38 +18,40 @@
           :class="`elevation-${hover ? 2 : 0}`"
           class="project"
           flat
+          :to="{ name:'details', params: {id: index} }"
         >
           <v-container class="project-container">
-            <v-row no-gutters>
-              <v-col class="image-container" cols="auto">
+            <v-layout row wrap>
+              <v-flex d-flex xs12 sm4 md2>
+
                 <v-img
+                  class="card-background-image"
                   :src="`/cfimages/${project.image}`"
-                  height="150"
-                  width="150"
-                ></v-img>
-              </v-col>
-      
-              <v-col
-              >
-                <v-row
-                  class="flex-column ma-0 fill-height"
-                >
-                  <v-col >
-                    {{ project.name }}
-                  </v-col>
-      
-                  <v-col>
+                  height="150px"
+                > 
+                  <div
+                    :style="`background-color: ${project.statusStyle}`" 
+                    class="status-container"
+                  >
+                    <h2>{{ project.status }}</h2>
+                  </div>
+                </v-img>
+              </v-flex>
+              <v-flex d-flex xs12 sm8 md10>
+                <v-layout column class="card-description">
+                  <h3>{{ project.name }}</h3>
+
+                  <div class="stats">
                     <v-icon color="blue darken-2">money</v-icon>
-                    {{ project.budget }}
-                  </v-col>
-      
-                  <v-col>
+                    {{ project.budget }}                    
+                  </div>  
+                  <div class="stats">
                     <v-icon color="blue darken-2">flag</v-icon>
                     {{ project.completed }}
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
+                  </div>
+                </v-layout>
+              </v-flex>
+            </v-layout>
           </v-container>
         </v-card>
       </v-hover>
@@ -81,30 +83,54 @@ export default {
 }
 </script>
 
-<style scoped>
-  .spinning-circle {
-    margin-top: 105px;
-    margin-bottom: 105px;
+<style scoped lang="scss">
+
+  h3 {
+    text-decoration: underline;
   }
-  .projects {
-    justify-content: center;
-    padding-bottom: 80px;
-    display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(900px, max-content)); */
-    grid-column-gap: 1.2rem;
-    grid-row-gap: 1.2rem;
+
+  .spinning-circle {
+    margin: 0 auto;
   }
 
   .project {
     border: 1px solid #e3e9f2;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 10px; 
   }
 
   .project-container {
     padding-top: 0%;
     padding-bottom: 0%;
-    padding-left: 0%;
   }
 
+  .card-description{
+    padding-top: 10px;
+    padding-left: 20px;
+  }
+
+  .stats {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+  }
+
+  h2 {
+    text-align: center;
+    color: white;
+  }
+
+  .card-background-image {
+    display: cover;
+    position: relative;
+  }
+
+  .status-container {
+    contain: content;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }  
 </style>
